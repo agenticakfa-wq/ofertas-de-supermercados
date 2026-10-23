@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f6f7f2" />
+  <title>Ofertas cerca de ti</title>
+  <meta name="description" content="Prototipo de Ofertas de Supermercados para Lima, Buenos Aires y Santa Fe." />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Ofertas cerca de ti, inicio"><span class="brand-mark">%</span><span>ahorra<span class="brand-dot">.</span></span></a>
+    <button class="location-pill" id="locationButton" type="button"><span class="pin">⌖</span><span><small>Tu zona</small><strong id="locationLabel">Lima, Perú</strong></span><span class="chevron">⌄</span></button>
+    <button class="avatar" aria-label="Perfil" type="button">M</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy"><p class="eyebrow"><span class="live-dot"></span> OFERTAS CERCA DE TI</p><h1>Tu compra,<br /><em>más inteligente.</em></h1><p class="subhead">Las mejores ofertas de supermercados a pocos minutos de donde estás.</p></div>
+      <div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="bag"><span>✦</span></div><div class="produce produce-one">●</div><div class="produce produce-two">●</div><div class="sparkle">✳</div></div>
+      <div class="location-notice" id="locationNotice"><span>⌖</span> <span>Activa tu ubicación para ordenar por cercanía</span><button id="enableLocation" type="button">Activar ubicación <b>→</b></button></div>
+    </section>
+
+    <section class="deal-section" aria-labelledby="dealsTitle">
+      <div class="section-heading"><div><p class="eyebrow muted">SELECCIÓN DE HOY</p><h2 id="dealsTitle">20 ofertas para ti</h2><p class="section-note" id="resultNote">En supermercados cerca de tu zona</p></div><button class="filter-button" id="filtersToggle" type="button"><span>☷</span> Filtrar</button></div>
+      <div class="filters" id="filters" hidden>
+        <label>Supermercado <select id="storeFilter"><option value="Todos">Todos</option></select></label>
+        <label>Categoría <select id="categoryFilter"><option value="Todas">Todas</option><option>Frutas y verduras</option><option>Lácteos</option><option>Despensa</option><option>Bebidas</option><option>Limpieza</option><option>Cuidado personal</option></select></label>
+      </div>
+      <div class="deal-grid" id="dealGrid" aria-live="polite"></div>
+      <div class="empty-state" id="emptyState" hidden>No encontramos ofertas con esos filtros. Prueba con otra categoría.</div>
+      <p class="demo-disclaimer" id="demoDisclaimer">Prototipo: ofertas y distancias de ejemplo, no son precios verificados.</p>
+    </section>
+    <section class="how-it-works"><div class="how-icon">✦</div><div><strong>Ahorro que sí te queda cerca</strong><p>Comparamos ofertas y sucursales para que encuentres el mejor precio sin cruzar la ciudad.</p></div><span class="how-arrow">↗</span></section>
+  </main>
+  <footer><span>ahorra<span class="brand-dot">.</span></span><span>Menos vueltas. Más ahorro.</span></footer>
+
+  <dialog id="cityDialog"><form method="dialog"><button class="dialog-close" aria-label="Cerrar">×</button><p class="eyebrow muted">ELIGE TU ZONA</p><h2>¿Dónde estás?</h2><p class="section-note">Por ahora estamos preparando el piloto en estas ciudades.</p><div class="city-options"><button class="city-option" value="Lima"><span>🇵🇪</span><span><strong>Lima</strong><small>Perú</small></span><span>→</span></button><button class="city-option" value="Buenos Aires"><span>🇦🇷</span><span><strong>Buenos Aires</strong><small>Argentina</small></span><span>→</span></button><button class="city-option" value="Santa Fe"><span>🇦🇷</span><span><strong>Santa Fe</strong><small>Argentina</small></span><span>→</span></button></div><button class="dialog-gps" id="dialogGps" type="button">⌖ Usar mi ubicación</button></form></dialog>
+</body>
+</html>

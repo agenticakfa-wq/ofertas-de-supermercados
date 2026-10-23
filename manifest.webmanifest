@@ -1,0 +1,12 @@
+{
+  "name": "Ofertas de Supermercados",
+  "short_name": "Ofertas",
+  "description": "Prototipo de ofertas para Lima, Buenos Aires y Santa Fe.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f6f7f2",
+  "theme_color": "#f6f7f2",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
