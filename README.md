@@ -1,21 +1,21 @@
 # OFERTAS DE SUPERMERCADOS
 
-Prototipo web adaptable a celulares para el piloto en Lima, Buenos Aires y Santa Fe. Permite elegir ciudad, solicitar ubicación del navegador y filtrar una selección de ofertas de demostración.
+Web app responsive para el piloto de Lima, Buenos Aires y Santa Fe. Muestra precios promocionales extraídos de catálogos públicos online de supermercados, con enlace a la ficha original y hora de captura.
 
-## Estado de publicación y datos
+## Datos y cobertura actuales
 
-La app es una **demostración visual**, no un servicio de ofertas reales. Todos los productos, precios, descuentos, sucursales y distancias en `app.js` son ficticios. No deben usarse para decidir compras ni presentarse como promociones vigentes. Publicar esta página no convierte esos datos en reales.
+`data/latest.json` contiene la última captura desde seis catálogos VTEX públicos: Plaza Vea, Metro, Wong, Carrefour, Día y Jumbo. Los importes son precios online capturados directamente del catálogo. No garantizan precio o stock en tienda física, una sucursal concreta, la zona de reparto ni una fecha de fin promocional.
 
-La geolocalización solo selecciona la ciudad piloto. No transmite coordenadas ni calcula distancias reales a sucursales.
+Tottus devuelve HTTP 503 a las consultas automatizadas desde este entorno. El sitemap público de Coto tiene fecha de modificación de 2025 y no se usa como oferta vigente. No se sortean bloqueos ni se accede a cuentas, carrito o checkout.
 
-## Desarrollo local
+La selección de ciudad limita el país del catálogo; **todavía no regionaliza los precios ni calcula sucursales cercanas por GPS**. En Argentina, el catálogo del país no verifica cobertura particular de Buenos Aires o Santa Fe.
 
-Abre `index.html` o sirve esta carpeta por HTTP. No necesita compilación.
+## Actualización
 
-## Instalación en el celular
+`python3 scrape_catalogs.py` consulta una página de hasta 50 productos por tienda habilitada, una consulta por tienda y con pausas entre comercios; filtra productos disponibles con precio menor al precio de referencia y guarda `data/latest.json`. El filtro de rutas consulta y respeta `robots.txt`.
 
-Abre la URL HTTPS en el navegador del celular y elige **Añadir a pantalla de inicio** (Safari en iPhone; Chrome en Android). Se incluye un manifiesto e ícono para la pantalla de inicio.
+La captura se actualiza al ejecutar `refresh_catalogs.sh`. El job de OpenClaw está pensado para ejecutarlo diariamente a las 07:00 hora de Lima; requiere que el Gateway y la credencial de GitHub estén disponibles.
 
-## Requisitos para ofertas reales
+## Celular
 
-Antes de reemplazar la demostración hay que integrar y verificar fuentes que permitan reutilizar precios y condiciones de Plaza Vea, Tottus, Metro y Wong en Perú, y Carrefour, Coto, Día y Jumbo en Argentina. También hace falta georreferenciar sucursales y registrar vigencia, restricciones, fuente y hora de consulta. No se debe etiquetar una oferta como real si no cuenta con fuente y fecha de verificación.
+Abre la URL HTTPS y selecciona **Añadir a pantalla de inicio** en Safari (iPhone) o Chrome (Android). Se incluye manifiesto e ícono.

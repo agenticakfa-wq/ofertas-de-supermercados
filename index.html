@@ -20,20 +20,21 @@
 
   <main>
     <section class="hero">
-      <div class="hero-copy"><p class="eyebrow"><span class="live-dot"></span> OFERTAS CERCA DE TI</p><h1>Tu compra,<br /><em>más inteligente.</em></h1><p class="subhead">Las mejores ofertas de supermercados a pocos minutos de donde estás.</p></div>
+      <div class="hero-copy"><p class="eyebrow"><span class="live-dot"></span> PRECIOS DE CATÁLOGOS ONLINE</p><h1>Tu compra,<br /><em>más inteligente.</em></h1><p class="subhead">Comparamos precios promocionales publicados por supermercados y enlazamos cada producto a su tienda.</p></div>
       <div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="bag"><span>✦</span></div><div class="produce produce-one">●</div><div class="produce produce-two">●</div><div class="sparkle">✳</div></div>
       <div class="location-notice" id="locationNotice"><span>⌖</span> <span>Activa tu ubicación para ordenar por cercanía</span><button id="enableLocation" type="button">Activar ubicación <b>→</b></button></div>
     </section>
 
     <section class="deal-section" aria-labelledby="dealsTitle">
-      <div class="section-heading"><div><p class="eyebrow muted">SELECCIÓN DE HOY</p><h2 id="dealsTitle">20 ofertas para ti</h2><p class="section-note" id="resultNote">En supermercados cerca de tu zona</p></div><button class="filter-button" id="filtersToggle" type="button"><span>☷</span> Filtrar</button></div>
+      <div class="section-heading"><div><p class="eyebrow muted">PRECIOS PUBLICADOS</p><h2 id="dealsTitle">Cargando ofertas…</h2><p class="section-note" id="resultNote">Consultando catálogos</p></div><button class="filter-button" id="filtersToggle" type="button"><span>☷</span> Filtrar</button></div>
+      <p class="feed-notice" id="feedNotice" aria-live="polite">Consultando fuentes…</p>
       <div class="filters" id="filters" hidden>
         <label>Supermercado <select id="storeFilter"><option value="Todos">Todos</option></select></label>
         <label>Categoría <select id="categoryFilter"><option value="Todas">Todas</option><option>Frutas y verduras</option><option>Lácteos</option><option>Despensa</option><option>Bebidas</option><option>Limpieza</option><option>Cuidado personal</option></select></label>
       </div>
       <div class="deal-grid" id="dealGrid" aria-live="polite"></div>
-      <div class="empty-state" id="emptyState" hidden>No encontramos ofertas con esos filtros. Prueba con otra categoría.</div>
-      <p class="demo-disclaimer" id="demoDisclaimer">Prototipo: ofertas y distancias de ejemplo, no son precios verificados.</p>
+      <div class="empty-state" id="emptyState" hidden>No encontramos ofertas verificadas con esos filtros.<br /><button id="retryFeed" type="button">Volver a cargar</button></div>
+      <p class="demo-disclaimer" id="demoDisclaimer">Los precios provienen de los catálogos online y reflejan la hora de captura. Pueden variar por domicilio, stock, medio de pago y tienda física. La app aún no calcula sucursales cercanas.</p>
     </section>
     <section class="how-it-works"><div class="how-icon">✦</div><div><strong>Ahorro que sí te queda cerca</strong><p>Comparamos ofertas y sucursales para que encuentres el mejor precio sin cruzar la ciudad.</p></div><span class="how-arrow">↗</span></section>
   </main>
