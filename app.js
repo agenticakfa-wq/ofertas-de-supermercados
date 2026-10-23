@@ -80,10 +80,9 @@ function render() {
     return `<article class="deal-card">
       <div class="card-top"><span class="store-tag">${esc(offer.store)}</span><span class="discount">-${esc(offer.discount)}%</span></div>
       <a class="product-link" href="${esc(href)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ${esc(offer.name)} en ${esc(offer.store)}">
-        <div class="product-art">${image ? `<img src="${esc(image)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : '<span>🛒</span>'}</div>
+        <div class="product-art">${image ? `<img src="${esc(image)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : '<span class="image-placeholder">🛒</span>'}<span class="image-price"><strong>${esc(fmt(offer.price, offer.market))}</strong><del>${esc(fmt(offer.oldPrice, offer.market))}</del></span></div>
         <div class="product-name">${esc(offer.name)}</div>
       </a>
-      <div class="prices"><span class="price">${fmt(offer.price, offer.market)}</span><span class="old-price">${fmt(offer.oldPrice, offer.market)}</span></div>
       <div class="distance"><span>Catálogo online · ${esc(offer.seller || offer.store)}</span><b><a href="${esc(href)}" target="_blank" rel="noopener noreferrer">Ver oferta ↗</a></b></div>
     </article>`;
   }).join('');
