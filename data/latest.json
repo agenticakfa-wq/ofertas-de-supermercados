@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-10-23T02:54:50+00:00",
+  "capturedAt": "2026-10-23T12:00:15+00:00",
   "refreshHours": 24,
   "note": "Precios online observados en catálogos públicos; no garantizan precio/stock en tienda física ni cercanía de sucursal.",
   "sources": [
@@ -8,28 +8,28 @@
       "market": "PE",
       "catalogUrl": "https://www.plazavea.com.pe",
       "status": "ok",
-      "count": 32
+      "count": 35
     },
     {
       "name": "Metro",
       "market": "PE",
       "catalogUrl": "https://www.metro.pe",
       "status": "ok",
-      "count": 32
+      "count": 33
     },
     {
       "name": "Wong",
       "market": "PE",
       "catalogUrl": "https://www.wong.pe",
       "status": "ok",
-      "count": 15
+      "count": 12
     },
     {
       "name": "Carrefour",
       "market": "AR",
       "catalogUrl": "https://www.carrefour.com.ar",
       "status": "ok",
-      "count": 10
+      "count": 4
     },
     {
       "name": "Día",
@@ -76,7 +76,7 @@
       "image": "https://ardiaprod.vteximg.com.br/arquivos/ids/376982/Galletitas-Oreo-Rellenas-con-Crema-Sabor-Original-Menos-sodio-118-Gr-_1.jpg?v=639229308640330000",
       "url": "https://diaonline.supermercadosdia.com.ar/galletitas-oreo-rellenas-con-crema-sabor-original-menos-sodio-118-gr-271629/p",
       "source": "https://diaonline.supermercadosdia.com.ar",
-      "available": 1049,
+      "available": 1047,
       "seller": "Supermercados DIA"
     },
     {
@@ -112,7 +112,7 @@
       "image": "https://ardiaprod.vteximg.com.br/arquivos/ids/390241/Palta-X-1-Ud-_1.jpg?v=639268800258500000",
       "url": "https://diaonline.supermercadosdia.com.ar/palta-x-1-ud-228219/p",
       "source": "https://diaonline.supermercadosdia.com.ar",
-      "available": 1254,
+      "available": 1354,
       "seller": "Supermercados DIA"
     },
     {
@@ -170,6 +170,42 @@
       "seller": "CARREFOUR"
     },
     {
+      "market": "PE",
+      "store": "Metro",
+      "storeScope": "online_catalog",
+      "name": "Agua de Mesa Sin Gas San Luis Bidón 7L",
+      "brand": "San Luis",
+      "price": 5.2,
+      "oldPrice": 8.5,
+      "discount": 38.8,
+      "currency": "PEN",
+      "category": "Aguas y Bebidas",
+      "unit": "un",
+      "image": "https://metroio.vteximg.com.br/arquivos/ids/544011/320786-01-79312.jpg?v=638621049681200000",
+      "url": "https://www.metro.pe/agua-de-mesa-sin-gas-san-luis-bid-n-7l-320786/p",
+      "source": "https://www.metro.pe",
+      "available": 99999,
+      "seller": "CENCOSUD RETAIL PERU S.A."
+    },
+    {
+      "market": "PE",
+      "store": "Wong",
+      "storeScope": "online_catalog",
+      "name": "Agua de Mesa Sin Gas San Luis Bidón 7L",
+      "brand": "San Luis",
+      "price": 5.2,
+      "oldPrice": 8.5,
+      "discount": 38.8,
+      "currency": "PEN",
+      "category": "Aguas y Bebidas",
+      "unit": "un",
+      "image": "https://wongfood.vteximg.com.br/arquivos/ids/724506/320786-01-4784.jpg?v=638621051072230000",
+      "url": "https://www.wong.pe/agua-de-mesa-sin-gas-san-luis-bid-n-7l-320786/p",
+      "source": "https://www.wong.pe",
+      "available": 99999,
+      "seller": "WongIO"
+    },
+    {
       "market": "AR",
       "store": "Día",
       "storeScope": "online_catalog",
@@ -202,7 +238,7 @@
       "image": "https://ardiaprod.vteximg.com.br/arquivos/ids/372896/Arroz-Largo-Fino-00000-Dia-1-Kg-_1.jpg?v=639168563373100000",
       "url": "https://diaonline.supermercadosdia.com.ar/arroz-largo-fino-00000-dia-1-kg-55745/p",
       "source": "https://diaonline.supermercadosdia.com.ar",
-      "available": 523,
+      "available": 516,
       "seller": "Supermercados DIA"
     },
     {
@@ -256,7 +292,7 @@
       "image": "https://ardiaprod.vteximg.com.br/arquivos/ids/343644/Leche-Larga-Vida-Clasica-3--La-Serenisima-1-Lt-_1.jpg?v=638882737968930000",
       "url": "https://diaonline.supermercadosdia.com.ar/leche-larga-vida-clasica-3--la-serenisima-1-lt-295999/p",
       "source": "https://diaonline.supermercadosdia.com.ar",
-      "available": 1210,
+      "available": 1330,
       "seller": "Supermercados DIA"
     },
     {
@@ -297,39 +333,21 @@
     },
     {
       "market": "PE",
-      "store": "Metro",
+      "store": "Plaza Vea",
       "storeScope": "online_catalog",
-      "name": "Pera Packhams x kg",
-      "brand": "Genérico",
-      "price": 5.7,
-      "oldPrice": 8.49,
-      "discount": 32.9,
+      "name": "Camote Amarillo Procesado x kg",
+      "brand": "PLAZA VEA",
+      "price": 2.58,
+      "oldPrice": 3.69,
+      "discount": 30.1,
       "currency": "PEN",
       "category": "Frutas y Verduras",
       "unit": "kg",
-      "image": "https://metroio.vteximg.com.br/arquivos/ids/517440/67287-02-23906.jpg?v=638466831721170000",
-      "url": "https://www.metro.pe/pera-packhams-x-kg-67287-2/p",
-      "source": "https://www.metro.pe",
-      "available": 99999,
-      "seller": "CENCOSUD RETAIL PERU S.A."
-    },
-    {
-      "market": "PE",
-      "store": "Metro",
-      "storeScope": "online_catalog",
-      "name": "Palta Fuerte Metro x kg",
-      "brand": "Genérico",
-      "price": 8.99,
-      "oldPrice": 12.99,
-      "discount": 30.8,
-      "currency": "PEN",
-      "category": "Frutas y Verduras",
-      "unit": "kg",
-      "image": "https://metroio.vteximg.com.br/arquivos/ids/275816/71554-1.jpg?v=638179302568930000",
-      "url": "https://www.metro.pe/palta-fuerte-metro-x-kg-71554-2/p",
-      "source": "https://www.metro.pe",
-      "available": 99999,
-      "seller": "CENCOSUD RETAIL PERU S.A."
+      "image": "https://plazavea.vteximg.com.br/arquivos/ids/226523/65107.jpg?v=636977898045430000",
+      "url": "https://www.plazavea.com.pe/camote-amarillo-procesado-x-k-g-1/p",
+      "source": "https://www.plazavea.com.pe",
+      "available": 855,
+      "seller": "Plaza Vea"
     },
     {
       "market": "PE",
@@ -364,7 +382,7 @@
       "image": "https://ardiaprod.vteximg.com.br/arquivos/ids/372768/Arroz-Largo-Fino-Ala-1-Kg-_1.jpg?v=639168561832670000",
       "url": "https://diaonline.supermercadosdia.com.ar/arroz-largo-fino-ala-1-kg-25417/p",
       "source": "https://diaonline.supermercadosdia.com.ar",
-      "available": 228,
+      "available": 227,
       "seller": "Supermercados DIA"
     },
     {
@@ -418,7 +436,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/29694318/135484.jpg?v=639271546463870000",
       "url": "https://www.plazavea.com.pe/pollo-entero-fresco-con-menudencia-x-kg-135484/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 99279,
+      "available": 99970,
       "seller": "Plaza Vea"
     },
     {
@@ -495,42 +513,6 @@
     },
     {
       "market": "AR",
-      "store": "Carrefour",
-      "storeScope": "online_catalog",
-      "name": "Leche La serenisima liviana 1% 1L",
-      "brand": "La Serenísima",
-      "price": 2159.0,
-      "oldPrice": 2915.0,
-      "discount": 25.9,
-      "currency": "ARS",
-      "category": "Lácteos y productos frescos",
-      "unit": "un",
-      "image": "https://carrefourar.vteximg.com.br/arquivos/ids/636143/7790742363107_01.jpg.jpg?v=638780813024830000",
-      "url": "https://www.carrefour.com.ar/leche-la-serenisima-liviana-1-1l-720720/p",
-      "source": "https://www.carrefour.com.ar",
-      "available": 99999,
-      "seller": "CARREFOUR"
-    },
-    {
-      "market": "AR",
-      "store": "Carrefour",
-      "storeScope": "online_catalog",
-      "name": "Leche La serenisima clásica 3% 1L",
-      "brand": "La Serenísima",
-      "price": 2159.0,
-      "oldPrice": 2915.0,
-      "discount": 25.9,
-      "currency": "ARS",
-      "category": "Lácteos y productos frescos",
-      "unit": "un",
-      "image": "https://carrefourar.vteximg.com.br/arquivos/ids/636141/7790742363008_01.jpg.jpg?v=638780812788100000",
-      "url": "https://www.carrefour.com.ar/leche-la-serenisima-clasica-3-1l-720719/p",
-      "source": "https://www.carrefour.com.ar",
-      "available": 99999,
-      "seller": "CARREFOUR"
-    },
-    {
-      "market": "AR",
       "store": "Día",
       "storeScope": "online_catalog",
       "name": "Bizcocho Don Satur Salado 200 Gr.",
@@ -544,26 +526,8 @@
       "image": "https://ardiaprod.vteximg.com.br/arquivos/ids/380556/Bizcocho-Don-Satur-Salado-200-Gr-_1.jpg?v=639260134727430000",
       "url": "https://diaonline.supermercadosdia.com.ar/bizcocho-don-satur-salado-200-gr-216575/p",
       "source": "https://diaonline.supermercadosdia.com.ar",
-      "available": 744,
+      "available": 739,
       "seller": "Supermercados DIA"
-    },
-    {
-      "market": "PE",
-      "store": "Plaza Vea",
-      "storeScope": "online_catalog",
-      "name": "Gaseosa INCA KOLA sin Azúcar Botella 300ml Paquete 6un",
-      "brand": "INCA KOLA",
-      "price": 7.5,
-      "oldPrice": 10.0,
-      "discount": 25.0,
-      "currency": "PEN",
-      "category": "Bebidas",
-      "unit": "un",
-      "image": "https://plazavea.vteximg.com.br/arquivos/ids/36302852/20136609.jpg?v=639264188072770000",
-      "url": "https://www.plazavea.com.pe/gaseosa-inca-kola-sin-azucar-botella-300ml-paquete-6un-20136609/p",
-      "source": "https://www.plazavea.com.pe",
-      "available": 246,
-      "seller": "Plaza Vea"
     },
     {
       "market": "AR",
@@ -580,8 +544,26 @@
       "image": "https://ardiaprod.vteximg.com.br/arquivos/ids/309461/Pure-De-Tomate-Arcor-520-Gr-_1.jpg?v=639280532198500000",
       "url": "https://diaonline.supermercadosdia.com.ar/pure-de-tomate-arcor-520-gr-56121/p",
       "source": "https://diaonline.supermercadosdia.com.ar",
-      "available": 390,
+      "available": 386,
       "seller": "Supermercados DIA"
+    },
+    {
+      "market": "AR",
+      "store": "Carrefour",
+      "storeScope": "online_catalog",
+      "name": "Queso cremoso Cremac x kg.",
+      "brand": "Cremac",
+      "price": 9999.0,
+      "oldPrice": 13260.0,
+      "discount": 24.6,
+      "currency": "ARS",
+      "category": "Lácteos y productos frescos",
+      "unit": "kg",
+      "image": "https://carrefourar.vteximg.com.br/arquivos/ids/883986/2505266000002_02.jpg?v=639159142839870000",
+      "url": "https://www.carrefour.com.ar/queso-cremoso-cremac-x-kg-646568/p",
+      "source": "https://www.carrefour.com.ar",
+      "available": 99999,
+      "seller": "CARREFOUR"
     },
     {
       "market": "AR",
@@ -598,26 +580,8 @@
       "image": "https://ardiaprod.vteximg.com.br/arquivos/ids/362197/Aceite-de-Girasol-Dia-900-Ml-_1.jpg?v=638993152341770000",
       "url": "https://diaonline.supermercadosdia.com.ar/aceite-de-girasol-dia-900-ml-226068/p",
       "source": "https://diaonline.supermercadosdia.com.ar",
-      "available": 524,
+      "available": 519,
       "seller": "Supermercados DIA"
-    },
-    {
-      "market": "AR",
-      "store": "Carrefour",
-      "storeScope": "online_catalog",
-      "name": "Puré de tomate Carrefour classic 520 g.",
-      "brand": "Carrefour",
-      "price": 650.0,
-      "oldPrice": 859.0,
-      "discount": 24.3,
-      "currency": "ARS",
-      "category": "Almacén",
-      "unit": "un",
-      "image": "https://carrefourar.vteximg.com.br/arquivos/ids/386694/7798141711031_E01.jpg?v=638318705570400000",
-      "url": "https://www.carrefour.com.ar/pure-de-tomate-carrefour-classic-520-g/p",
-      "source": "https://www.carrefour.com.ar",
-      "available": 99999,
-      "seller": "CARREFOUR"
     },
     {
       "market": "PE",
@@ -634,7 +598,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/34332099/48640.jpg?v=639124910282500000",
       "url": "https://www.plazavea.com.pe/naranja-para-jug-1o-x-k-g-1/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 547,
+      "available": 1343,
       "seller": "Plaza Vea"
     },
     {
@@ -724,44 +688,8 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/518590/60769.jpg?v=637417681802200000",
       "url": "https://www.plazavea.com.pe/tomate-italiano-xk-g-1/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 702,
+      "available": 1259,
       "seller": "Plaza Vea"
-    },
-    {
-      "market": "AR",
-      "store": "Carrefour",
-      "storeScope": "online_catalog",
-      "name": "Lomito de atún al natural Carrefour Classic 170 grs",
-      "brand": "Carrefour",
-      "price": 2590.0,
-      "oldPrice": 3290.0,
-      "discount": 21.3,
-      "currency": "ARS",
-      "category": "Almacén",
-      "unit": "un",
-      "image": "https://carrefourar.vteximg.com.br/arquivos/ids/386717/7798033333907_E01.jpg?v=638800900950700000",
-      "url": "https://www.carrefour.com.ar/lomito-de-atun-al-natural-carrefour-classic-170-grs-122140/p",
-      "source": "https://www.carrefour.com.ar",
-      "available": 99999,
-      "seller": "CARREFOUR"
-    },
-    {
-      "market": "AR",
-      "store": "Carrefour",
-      "storeScope": "online_catalog",
-      "name": "Lomito de atún en aceite Carrefour Classic 170 grs",
-      "brand": "Carrefour",
-      "price": 2590.0,
-      "oldPrice": 3290.0,
-      "discount": 21.3,
-      "currency": "ARS",
-      "category": "Almacén",
-      "unit": "un",
-      "image": "https://carrefourar.vteximg.com.br/arquivos/ids/386790/7798033333891_E01.jpg?v=638800901365000000",
-      "url": "https://www.carrefour.com.ar/lomito-de-atun-en-aceite-carrefour-classic-170-grs-122141/p",
-      "source": "https://www.carrefour.com.ar",
-      "available": 99999,
-      "seller": "CARREFOUR"
     },
     {
       "market": "PE",
@@ -778,7 +706,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/28685543/K0000009884.jpg?v=638418009352530000",
       "url": "https://www.plazavea.com.pe/pack-galleta-nabisco-oreo-regular-paquete-6un-x-2un/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 207,
+      "available": 231,
       "seller": "Plaza Vea"
     },
     {
@@ -814,7 +742,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/34332132/844123.jpg?v=639124910536430000",
       "url": "https://www.plazavea.com.pe/cebolla-roja-x-kg-1/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 746,
+      "available": 1381,
       "seller": "Plaza Vea"
     },
     {
@@ -850,7 +778,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/35462680/20277768.jpg?v=639207697520670000",
       "url": "https://www.plazavea.com.pe/fideos-don-vittorio-spaghetti-bolsa-950g-20277768/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 1373,
+      "available": 1421,
       "seller": "Plaza Vea"
     },
     {
@@ -872,42 +800,6 @@
       "seller": "CARREFOUR"
     },
     {
-      "market": "AR",
-      "store": "Carrefour",
-      "storeScope": "online_catalog",
-      "name": "Manzana roja x kg.",
-      "brand": "Genérico",
-      "price": 3999.0,
-      "oldPrice": 4999.0,
-      "discount": 20.0,
-      "currency": "ARS",
-      "category": "Frutas y verduras",
-      "unit": "kg",
-      "image": "https://carrefourar.vteximg.com.br/arquivos/ids/894231/2300397000002_02.jpg?v=639178221409900000",
-      "url": "https://www.carrefour.com.ar/manzana-red-x-kg-432782/p",
-      "source": "https://www.carrefour.com.ar",
-      "available": 99999,
-      "seller": "CARREFOUR"
-    },
-    {
-      "market": "PE",
-      "store": "Plaza Vea",
-      "storeScope": "online_catalog",
-      "name": "Camote Amarillo Procesado x kg",
-      "brand": "PLAZA VEA",
-      "price": 2.98,
-      "oldPrice": 3.69,
-      "discount": 19.2,
-      "currency": "PEN",
-      "category": "Frutas y Verduras",
-      "unit": "kg",
-      "image": "https://plazavea.vteximg.com.br/arquivos/ids/226523/65107.jpg?v=636977898045430000",
-      "url": "https://www.plazavea.com.pe/camote-amarillo-procesado-x-k-g-1/p",
-      "source": "https://www.plazavea.com.pe",
-      "available": 332,
-      "seller": "Plaza Vea"
-    },
-    {
       "market": "PE",
       "store": "Plaza Vea",
       "storeScope": "online_catalog",
@@ -922,7 +814,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/30632036/20283088.jpg?v=638758944902100000",
       "url": "https://www.plazavea.com.pe/trozos-de-atun-primor-en-aceite-vegetal-lata-140g/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 1051,
+      "available": 1062,
       "seller": "Plaza Vea"
     },
     {
@@ -1012,7 +904,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/36416995/20633090.jpg?v=639275908364600000",
       "url": "https://www.plazavea.com.pe/smartphones-samsung-galaxy-a17-4gb-128gb-negro-20633090/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 10293,
+      "available": 9190,
       "seller": "Plaza Vea"
     },
     {
@@ -1035,6 +927,24 @@
     },
     {
       "market": "PE",
+      "store": "Plaza Vea",
+      "storeScope": "online_catalog",
+      "name": "Zanahoria x kg",
+      "brand": "PLAZA VEA",
+      "price": 3.76,
+      "oldPrice": 4.49,
+      "discount": 16.3,
+      "currency": "PEN",
+      "category": "Frutas y Verduras",
+      "unit": "kg",
+      "image": "https://plazavea.vteximg.com.br/arquivos/ids/226526/120930.jpg?v=636977898066530000",
+      "url": "https://www.plazavea.com.pe/zanahoria-x-k-g-1/p",
+      "source": "https://www.plazavea.com.pe",
+      "available": 516,
+      "seller": "Plaza Vea"
+    },
+    {
+      "market": "PE",
       "store": "Metro",
       "storeScope": "online_catalog",
       "name": "Sixpack Leche Light Gloria Zero Lacto Lata 390g",
@@ -1050,6 +960,24 @@
       "source": "https://www.metro.pe",
       "available": 99999,
       "seller": "CENCOSUD RETAIL PERU S.A."
+    },
+    {
+      "market": "PE",
+      "store": "Plaza Vea",
+      "storeScope": "online_catalog",
+      "name": "Agua de Mesa CIELO Sin Gas Bidón 7L",
+      "brand": "CIELO",
+      "price": 5.8,
+      "oldPrice": 6.9,
+      "discount": 15.9,
+      "currency": "PEN",
+      "category": "Bebidas",
+      "unit": "un",
+      "image": "https://plazavea.vteximg.com.br/arquivos/ids/36303691/118275.jpg?v=639264191673530000",
+      "url": "https://www.plazavea.com.pe/agua-de-mesa-cielo-sin-gas-bidon-7l-118275/p",
+      "source": "https://www.plazavea.com.pe",
+      "available": 58,
+      "seller": "Plaza Vea"
     },
     {
       "market": "PE",
@@ -1106,6 +1034,60 @@
       "seller": "WongIO"
     },
     {
+      "market": "PE",
+      "store": "Plaza Vea",
+      "storeScope": "online_catalog",
+      "name": "Filete de Pechuga de Pollo x kg",
+      "brand": "PLAZA VEA",
+      "price": 18.5,
+      "oldPrice": 21.9,
+      "discount": 15.5,
+      "currency": "PEN",
+      "category": "Carnes, Aves y Pescados",
+      "unit": "kg",
+      "image": "https://plazavea.vteximg.com.br/arquivos/ids/29736516/20220319.jpg?v=638832906461130000",
+      "url": "https://www.plazavea.com.pe/filete-de-pechuga-de-pollo-x-kg-20220319/p",
+      "source": "https://www.plazavea.com.pe",
+      "available": 530,
+      "seller": "Plaza Vea"
+    },
+    {
+      "market": "PE",
+      "store": "Metro",
+      "storeScope": "online_catalog",
+      "name": "Palta Fuerte Metro x kg",
+      "brand": "Genérico",
+      "price": 10.99,
+      "oldPrice": 12.99,
+      "discount": 15.4,
+      "currency": "PEN",
+      "category": "Frutas y Verduras",
+      "unit": "kg",
+      "image": "https://metroio.vteximg.com.br/arquivos/ids/275816/71554-1.jpg?v=638179302568930000",
+      "url": "https://www.metro.pe/palta-fuerte-metro-x-kg-71554-2/p",
+      "source": "https://www.metro.pe",
+      "available": 99999,
+      "seller": "CENCOSUD RETAIL PERU S.A."
+    },
+    {
+      "market": "PE",
+      "store": "Metro",
+      "storeScope": "online_catalog",
+      "name": "Jabón para Ropa Bolívar Floral 380g",
+      "brand": "Bolívar",
+      "price": 5.0,
+      "oldPrice": 5.9,
+      "discount": 15.3,
+      "currency": "PEN",
+      "category": "Limpieza",
+      "unit": "un",
+      "image": "https://metroio.vteximg.com.br/arquivos/ids/575994/Jab-n-para-Ropa-Bol-var-Floral-380g-1-239827.jpg?v=638768146284130000",
+      "url": "https://www.metro.pe/jabon-para-ropa-bolivar-floral-380g-78756002/p",
+      "source": "https://www.metro.pe",
+      "available": 99999,
+      "seller": "CENCOSUD RETAIL PERU S.A."
+    },
+    {
       "market": "AR",
       "store": "Día",
       "storeScope": "online_catalog",
@@ -1120,7 +1102,7 @@
       "image": "https://ardiaprod.vteximg.com.br/arquivos/ids/312005/Galletitas-Crackers-Sandwich-Traviata-324-Gr-_1.jpg?v=638599394046870000",
       "url": "https://diaonline.supermercadosdia.com.ar/galletitas-crackers-sandwich-traviata-324-gr-134643/p",
       "source": "https://diaonline.supermercadosdia.com.ar",
-      "available": 205,
+      "available": 227,
       "seller": "Supermercados DIA"
     },
     {
@@ -1156,26 +1138,8 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/36303076/20281564.jpg?v=639264188960700000",
       "url": "https://www.plazavea.com.pe/aceite-vegetal-primor-premium-botella-900ml-20281564/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 2079,
+      "available": 2169,
       "seller": "Plaza Vea"
-    },
-    {
-      "market": "PE",
-      "store": "Wong",
-      "storeScope": "online_catalog",
-      "name": "Pierna con Encuentro de Pollo x kg",
-      "brand": "Genérico",
-      "price": 11.9,
-      "oldPrice": 13.9,
-      "discount": 14.4,
-      "currency": "PEN",
-      "category": "Carnes, Aves y Pescados",
-      "unit": "kg",
-      "image": "https://wongfood.vteximg.com.br/arquivos/ids/535983/227891-01-2615.jpg?v=637847128606470000",
-      "url": "https://www.wong.pe/pierna-con-encuentro-de-pollo-x-kg-227891/p",
-      "source": "https://www.wong.pe",
-      "available": 99999,
-      "seller": "WongIO"
     },
     {
       "market": "PE",
@@ -1215,21 +1179,21 @@
     },
     {
       "market": "PE",
-      "store": "Wong",
+      "store": "Metro",
       "storeScope": "online_catalog",
-      "name": "Papa Blanca Yungay x kg",
-      "brand": "Genérico",
-      "price": 3.09,
-      "oldPrice": 3.59,
-      "discount": 13.9,
+      "name": "Filete de Pechuga Pollo Redondos x kg",
+      "brand": "Redondos",
+      "price": 21.9,
+      "oldPrice": 25.4,
+      "discount": 13.8,
       "currency": "PEN",
-      "category": "Vive Sano",
+      "category": "Carnes, Aves y Pescados",
       "unit": "kg",
-      "image": "https://wongfood.vteximg.com.br/arquivos/ids/223610/Papa-Blanca-Yungay-x-kg-1-7325.jpg?v=636625116402970000",
-      "url": "https://www.wong.pe/papa-blanca-yungay-x-kg-162060/p",
-      "source": "https://www.wong.pe",
+      "image": "https://metroio.vteximg.com.br/arquivos/ids/504888/FILETE-DE-PECHUGA-POLLO-REDONDOS-KG-1-241064.jpg?v=638386150550930000",
+      "url": "https://www.metro.pe/filete-de-pechuga-pollo-redondos-x-kg-1001791/p",
+      "source": "https://www.metro.pe",
       "available": 99999,
-      "seller": "WongIO"
+      "seller": "CENCOSUD RETAIL PERU S.A."
     },
     {
       "market": "PE",
@@ -1246,7 +1210,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/28723328/20281991.jpg?v=638425016873130000",
       "url": "https://www.plazavea.com.pe/fideos-spaghetti-molitalia-bolsa-950g/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 382,
+      "available": 390,
       "seller": "Plaza Vea"
     },
     {
@@ -1325,6 +1289,24 @@
       "market": "PE",
       "store": "Plaza Vea",
       "storeScope": "online_catalog",
+      "name": "Filete de Pechuga de Pollo SADIA Bolsa 1kg",
+      "brand": "SADIA",
+      "price": 12.9,
+      "oldPrice": 14.9,
+      "discount": 13.4,
+      "currency": "PEN",
+      "category": "Carnes, Aves y Pescados",
+      "unit": "un",
+      "image": "https://plazavea.vteximg.com.br/arquivos/ids/34333934/20145201.jpg?v=639124920455500000",
+      "url": "https://www.plazavea.com.pe/filete-de-pechuga-de-pollo-sadia-bolsa-1kg-20145201/p",
+      "source": "https://www.plazavea.com.pe",
+      "available": 1828,
+      "seller": "Plaza Vea"
+    },
+    {
+      "market": "PE",
+      "store": "Plaza Vea",
+      "storeScope": "online_catalog",
       "name": "Limón Ácido x kg",
       "brand": "PLAZA VEA",
       "price": 3.4,
@@ -1336,7 +1318,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/34332144/60288.jpg?v=639124910619970000",
       "url": "https://www.plazavea.com.pe/limon-acido-x-k-g-1/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 1567,
+      "available": 1824,
       "seller": "Plaza Vea"
     },
     {
@@ -1354,7 +1336,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/36336931/20402655.jpg?v=639268160104170000",
       "url": "https://www.plazavea.com.pe/leche-reconstituida-entera-gloria-lata-390g-paquete-6un-20402655/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 682,
+      "available": 697,
       "seller": "Plaza Vea"
     },
     {
@@ -1372,7 +1354,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/35909058/20175797.jpg?v=639232868827100000",
       "url": "https://www.plazavea.com.pe/yogurt-griego-vakimu-original-pote-960g-20175797/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 753,
+      "available": 797,
       "seller": "Plaza Vea"
     },
     {
@@ -1390,7 +1372,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/36303074/20281566.jpg?v=639264188955000000",
       "url": "https://www.plazavea.com.pe/aceite-vegetal-primor-clasico-botella-900ml-20281566/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 1920,
+      "available": 1960,
       "seller": "Plaza Vea"
     },
     {
@@ -1448,24 +1430,6 @@
       "seller": "CENCOSUD RETAIL PERU S.A."
     },
     {
-      "market": "AR",
-      "store": "Carrefour",
-      "storeScope": "online_catalog",
-      "name": "Jamón cocido feteado Bulnez 150 grs",
-      "brand": "Bulnez",
-      "price": 3255.0,
-      "oldPrice": 3700.0,
-      "discount": 12.0,
-      "currency": "ARS",
-      "category": "Lácteos y productos frescos",
-      "unit": "un",
-      "image": "https://carrefourar.vteximg.com.br/arquivos/ids/834054/7791720036365_E02.jpg?v=639102204398870000",
-      "url": "https://www.carrefour.com.ar/jamon-cocido-feteado-bulnez-150-grs-762622/p",
-      "source": "https://www.carrefour.com.ar",
-      "available": 99999,
-      "seller": "CARREFOUR"
-    },
-    {
       "market": "PE",
       "store": "Metro",
       "storeScope": "online_catalog",
@@ -1482,24 +1446,6 @@
       "source": "https://www.metro.pe",
       "available": 99999,
       "seller": "CENCOSUD RETAIL PERU S.A."
-    },
-    {
-      "market": "PE",
-      "store": "Plaza Vea",
-      "storeScope": "online_catalog",
-      "name": "Plátano de Seda x kg",
-      "brand": "PLAZA VEA",
-      "price": 3.48,
-      "oldPrice": 3.89,
-      "discount": 10.5,
-      "currency": "PEN",
-      "category": "Frutas y Verduras",
-      "unit": "kg",
-      "image": "https://plazavea.vteximg.com.br/arquivos/ids/29450552/772631.jpg?v=639167417972170000",
-      "url": "https://www.plazavea.com.pe/platano-de-seda-x-k-g-1/p",
-      "source": "https://www.plazavea.com.pe",
-      "available": 178,
-      "seller": "Plaza Vea"
     },
     {
       "market": "PE",
@@ -1521,24 +1467,6 @@
     },
     {
       "market": "PE",
-      "store": "Wong",
-      "storeScope": "online_catalog",
-      "name": "Naranja de Mesa Importada x kg",
-      "brand": "Generico",
-      "price": 8.69,
-      "oldPrice": 9.69,
-      "discount": 10.3,
-      "currency": "PEN",
-      "category": "Vive Sano",
-      "unit": "kg",
-      "image": "https://wongfood.vteximg.com.br/arquivos/ids/607705/frontal-5198.jpg?v=638083861270500000",
-      "url": "https://www.wong.pe/naranja-de-mesa-importada-x-kg-67296/p",
-      "source": "https://www.wong.pe",
-      "available": 99999,
-      "seller": "WongIO"
-    },
-    {
-      "market": "PE",
       "store": "Plaza Vea",
       "storeScope": "online_catalog",
       "name": "Filete de Atún CAMPOMAR en Aceite Vegetal Lata 150g",
@@ -1552,7 +1480,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/16021094/20283079.jpg?v=639137726028100000",
       "url": "https://www.plazavea.com.pe/filete-de-atun-campomar-en-aceite-lata-150g/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 886,
+      "available": 894,
       "seller": "Plaza Vea"
     },
     {
@@ -1588,7 +1516,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/34361078/20283923.jpg?v=639137725438270000",
       "url": "https://www.plazavea.com.pe/filete-de-atun-en-aceite-vegetal-florida-lata-140g/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 2200,
+      "available": 2218,
       "seller": "Plaza Vea"
     },
     {
@@ -1611,39 +1539,21 @@
     },
     {
       "market": "PE",
-      "store": "Wong",
+      "store": "Plaza Vea",
       "storeScope": "online_catalog",
-      "name": "Papa Amarilla Tumbay Procesada x kg",
-      "brand": "Genérico",
-      "price": 9.99,
-      "oldPrice": 10.99,
-      "discount": 9.1,
-      "currency": "PEN",
-      "category": "Vive Sano",
-      "unit": "kg",
-      "image": "https://wongfood.vteximg.com.br/arquivos/ids/165226/Frontal-3102.jpg?v=636415350874670000",
-      "url": "https://www.wong.pe/papa-amarilla-tumbay-procesada-x-kg-4175/p",
-      "source": "https://www.wong.pe",
-      "available": 99999,
-      "seller": "WongIO"
-    },
-    {
-      "market": "PE",
-      "store": "Metro",
-      "storeScope": "online_catalog",
-      "name": "Filete de Pechuga Pollo Redondos x kg",
-      "brand": "Redondos",
-      "price": 23.2,
-      "oldPrice": 25.4,
+      "name": "Mayonesa ALACENA Doypack 850g",
+      "brand": "ALACENA",
+      "price": 17.9,
+      "oldPrice": 19.6,
       "discount": 8.7,
       "currency": "PEN",
-      "category": "Carnes, Aves y Pescados",
-      "unit": "kg",
-      "image": "https://metroio.vteximg.com.br/arquivos/ids/504888/FILETE-DE-PECHUGA-POLLO-REDONDOS-KG-1-241064.jpg?v=638386150550930000",
-      "url": "https://www.metro.pe/filete-de-pechuga-pollo-redondos-x-kg-1001791/p",
-      "source": "https://www.metro.pe",
-      "available": 99999,
-      "seller": "CENCOSUD RETAIL PERU S.A."
+      "category": "Abarrotes",
+      "unit": "un",
+      "image": "https://plazavea.vteximg.com.br/arquivos/ids/30426066/20314552.jpg?v=638761210743600000",
+      "url": "https://www.plazavea.com.pe/mayonesa-alacena-doypack-850g/p",
+      "source": "https://www.plazavea.com.pe",
+      "available": 1080,
+      "seller": "Plaza Vea"
     },
     {
       "market": "PE",
@@ -1678,7 +1588,25 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/34360390/20258249.jpg?v=639125047303500000",
       "url": "https://www.plazavea.com.pe/mantequilla-gloria-pote-390g/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 366,
+      "available": 412,
+      "seller": "Plaza Vea"
+    },
+    {
+      "market": "PE",
+      "store": "Plaza Vea",
+      "storeScope": "online_catalog",
+      "name": "Plátano de Seda x kg",
+      "brand": "PLAZA VEA",
+      "price": 3.6,
+      "oldPrice": 3.89,
+      "discount": 7.5,
+      "currency": "PEN",
+      "category": "Frutas y Verduras",
+      "unit": "kg",
+      "image": "https://plazavea.vteximg.com.br/arquivos/ids/29450552/772631.jpg?v=639167417972170000",
+      "url": "https://www.plazavea.com.pe/platano-de-seda-x-k-g-1/p",
+      "source": "https://www.plazavea.com.pe",
+      "available": 585,
       "seller": "Plaza Vea"
     },
     {
@@ -1714,25 +1642,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/36301406/20425170.jpg?v=639264148500500000",
       "url": "https://www.plazavea.com.pe/jabon-de-lavar-bolivar-cuidado-total-bolsa-380g-20425170/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 245,
-      "seller": "Plaza Vea"
-    },
-    {
-      "market": "PE",
-      "store": "Plaza Vea",
-      "storeScope": "online_catalog",
-      "name": "Mayonesa ALACENA Doypack 850g",
-      "brand": "ALACENA",
-      "price": 18.2,
-      "oldPrice": 19.6,
-      "discount": 7.1,
-      "currency": "PEN",
-      "category": "Abarrotes",
-      "unit": "un",
-      "image": "https://plazavea.vteximg.com.br/arquivos/ids/30426066/20314552.jpg?v=638761210743600000",
-      "url": "https://www.plazavea.com.pe/mayonesa-alacena-doypack-850g/p",
-      "source": "https://www.plazavea.com.pe",
-      "available": 1067,
+      "available": 271,
       "seller": "Plaza Vea"
     },
     {
@@ -1750,23 +1660,23 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/36522447/20220358.jpg?v=639281562753330000",
       "url": "https://www.plazavea.com.pe/lenteja-bebe-bells-bolsa-500g-20220358/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 589,
+      "available": 622,
       "seller": "Plaza Vea"
     },
     {
       "market": "PE",
       "store": "Metro",
       "storeScope": "online_catalog",
-      "name": "Aceite Vegetal Máxima 900ml",
-      "brand": "Maxima",
-      "price": 5.5,
-      "oldPrice": 5.9,
-      "discount": 6.8,
+      "name": "Sixpack Leche Reconstituida Gloria Lata 390g",
+      "brand": "Gloria",
+      "price": 22.9,
+      "oldPrice": 24.6,
+      "discount": 6.9,
       "currency": "PEN",
-      "category": "Abarrotes",
+      "category": "Lácteos",
       "unit": "un",
-      "image": "https://metroio.vteximg.com.br/arquivos/ids/539082/ACE-VEGETAL-MAXIMA-900ML-1-266323.jpg?v=638582169932730000",
-      "url": "https://www.metro.pe/aceite-vegetal-maxima-900ml-1021461/p",
+      "image": "https://metroio.vteximg.com.br/arquivos/ids/596133/975289-1.jpg?v=638880609454970000",
+      "url": "https://www.metro.pe/sixpack-leche-reconstituida-gloria-lata-390g-975289-2/p",
       "source": "https://www.metro.pe",
       "available": 99999,
       "seller": "CENCOSUD RETAIL PERU S.A."
@@ -1786,7 +1696,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/25835356/502139.jpg?v=639235239744200000",
       "url": "https://www.plazavea.com.pe/galletas-de-soda-san-jorge-paquete-7un/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 1751,
+      "available": 1803,
       "seller": "Plaza Vea"
     },
     {
@@ -1822,7 +1732,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/36336932/20402667.jpg?v=639268160108670000",
       "url": "https://www.plazavea.com.pe/leche-light-gloria-lata-390g-paquete-6un-20402667/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 410,
+      "available": 428,
       "seller": "Plaza Vea"
     },
     {
@@ -1858,7 +1768,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/35642214/20353008.jpg?v=639219879539330000",
       "url": "https://www.plazavea.com.pe/huevos-pardos-bells-bandeja-30un-20353008/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 943,
+      "available": 1034,
       "seller": "Plaza Vea"
     },
     {
@@ -1894,7 +1804,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/35462904/20568242.jpg?v=639207698323070000",
       "url": "https://www.plazavea.com.pe/filete-de-atun-en-agua-bells-lata-140g-20568242/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 1067,
+      "available": 1074,
       "seller": "Plaza Vea"
     },
     {
@@ -1912,7 +1822,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/35462903/20568243.jpg?v=639207698320100000",
       "url": "https://www.plazavea.com.pe/filete-de-atun-en-aceite-bells-lata-140g-20568243/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 886,
+      "available": 861,
       "seller": "Plaza Vea"
     },
     {
@@ -1930,7 +1840,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/34333994/20147595.jpg?v=639195504398970000",
       "url": "https://www.plazavea.com.pe/arroz-extra-anejo-premium-faraon-bolsa-10-kg/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 110,
+      "available": 112,
       "seller": "Plaza Vea"
     },
     {
@@ -1966,7 +1876,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/177116/20062794.jpg?v=635864716072300000",
       "url": "https://www.plazavea.com.pe/manzana-royal-g-1ala-importada-x-k-g-1/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 417,
+      "available": 482,
       "seller": "Plaza Vea"
     },
     {
@@ -1984,7 +1894,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/35081609/20402671.jpg?v=639177613370900000",
       "url": "https://www.plazavea.com.pe/leche-uht-gloria-zero-lacto-caja-946ml-paquete-3un-20402671/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 715,
+      "available": 740,
       "seller": "Plaza Vea"
     },
     {
@@ -2002,7 +1912,7 @@
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/35081461/20198435.jpg?v=639177601604100000",
       "url": "https://www.plazavea.com.pe/leche-entera-uht-gloria-bolsa-800ml-paquete-3un-20198435/p",
       "source": "https://www.plazavea.com.pe",
-      "available": 354,
+      "available": 363,
       "seller": "Plaza Vea"
     }
   ]
