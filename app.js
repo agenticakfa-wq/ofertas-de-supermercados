@@ -192,6 +192,7 @@ document.querySelector('#filtersToggle').addEventListener('click', () => {
   document.querySelector('#filters').hidden = !filtersOpen;
 });
 document.querySelector('#locationButton').addEventListener('click', () => cityDialog.showModal());
+document.querySelector('#chooseCityButton').addEventListener('click', () => cityDialog.showModal());
 document.querySelector('#enableLocation').addEventListener('click', useLocation);
 document.querySelector('#dialogGps').addEventListener('click', () => { cityDialog.close(); useLocation(); });
 cityDialog.querySelectorAll('.city-option').forEach(button => button.addEventListener('click', () => setCity(button.value)));

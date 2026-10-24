@@ -8,8 +8,8 @@
   <meta name="description" content="Ofertas de supermercados en Lima, Buenos Aires, Santa Fe, San Luis, San Francisco y Barañáin." />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="icon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css?v=offers-fallback-20261023" />
-  <script src="app.js?v=offers-fallback-20261023" defer></script>
+  <link rel="stylesheet" href="styles.css?v=location-choices-20261023" />
+  <script src="app.js?v=location-choices-20261023" defer></script>
 </head>
 <body>
   <header class="topbar">
@@ -22,7 +22,7 @@
     <section class="hero">
       <div class="hero-copy"><p class="eyebrow"><span class="live-dot"></span> PRECIOS DE CATÁLOGOS ONLINE</p><h1>Tu compra,<br /><em>más inteligente.</em></h1><p class="subhead">Comparamos precios promocionales publicados por supermercados y enlazamos cada producto a su tienda.</p></div>
       <div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="bag"><span>✦</span></div><div class="produce produce-one">●</div><div class="produce produce-two">●</div><div class="sparkle">✳</div></div>
-      <div class="location-notice" id="locationNotice"><span>⌖</span> <span>Activa tu ubicación para ordenar por cercanía</span><button id="enableLocation" type="button">Activar ubicación <b>→</b></button></div>
+      <div class="location-notice" id="locationNotice"><div class="location-prompt"><span aria-hidden="true">⌖</span><span><strong>Elige dónde buscar</strong><small>Activa tu ubicación o selecciona una ciudad para ver las ofertas disponibles.</small></span></div><div class="location-actions"><button class="location-primary" id="enableLocation" type="button">Usar mi ubicación <b>⌖</b></button><button class="location-secondary" id="chooseCityButton" type="button">Elegir ciudad <b>⌄</b></button></div></div>
     </section>
 
     <section class="deal-section" aria-labelledby="dealsTitle">
