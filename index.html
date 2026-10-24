@@ -4,16 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f6f7f2" />
-  <title>Ofertas cerca de ti</title>
-  <meta name="description" content="Ofertas de supermercados en Lima, Buenos Aires, Santa Fe, San Luis, San Francisco y Barañáin." />
+  <title>AgentiKfa - Market | Ofertas cerca de ti</title>
+  <meta name="description" content="AgentiKfa - Market: ofertas de supermercados en Lima, Buenos Aires, Santa Fe, San Luis, San Francisco y Barañáin." />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="icon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css?v=location-choices-20261023" />
+  <link rel="stylesheet" href="styles.css?v=agentikfa-market-20261023" />
   <script src="app.js?v=location-choices-20261023" defer></script>
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="#" aria-label="Ofertas cerca de ti, inicio"><span class="brand-mark">%</span><span>ahorra<span class="brand-dot">.</span></span></a>
+    <a class="brand" href="#" aria-label="AgentiKfa - Market, inicio"><span class="brand-mark" aria-hidden="true">A</span><span class="brand-name">AgentiKfa <span class="brand-market">- Market</span></span></a>
     <button class="location-pill" id="locationButton" type="button"><span class="pin">⌖</span><span><small>Tu zona</small><strong id="locationLabel">Lima, Perú</strong></span><span class="chevron">⌄</span></button>
     <button class="avatar" aria-label="Perfil" type="button">M</button>
   </header>
@@ -21,7 +21,14 @@
   <main>
     <section class="hero">
       <div class="hero-copy"><p class="eyebrow"><span class="live-dot"></span> PRECIOS DE CATÁLOGOS ONLINE</p><h1>Tu compra,<br /><em>más inteligente.</em></h1><p class="subhead">Comparamos precios promocionales publicados por supermercados y enlazamos cada producto a su tienda.</p></div>
-      <div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="bag"><span>✦</span></div><div class="produce produce-one">●</div><div class="produce produce-two">●</div><div class="sparkle">✳</div></div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="sun"></div>
+        <div class="art-orbit"></div>
+        <div class="bag"><span>✦</span><i>AHORRO</i></div>
+        <div class="produce produce-one">●</div><div class="produce produce-two">●</div>
+        <div class="leaf leaf-one"></div><div class="leaf leaf-two"></div>
+        <div class="sparkle">✳</div><div class="art-shadow"></div>
+      </div>
       <div class="location-notice" id="locationNotice"><div class="location-prompt"><span aria-hidden="true">⌖</span><span><strong>Elige dónde buscar</strong><small>Activa tu ubicación o selecciona una ciudad para ver las ofertas disponibles.</small></span></div><div class="location-actions"><button class="location-primary" id="enableLocation" type="button">Usar mi ubicación <b>⌖</b></button><button class="location-secondary" id="chooseCityButton" type="button">Elegir ciudad <b>⌄</b></button></div></div>
     </section>
 
@@ -38,7 +45,7 @@
     </section>
     <section class="how-it-works"><div class="how-icon">✦</div><div><strong>Ahorro que sí te queda cerca</strong><p>Comparamos ofertas y sucursales para que encuentres el mejor precio sin cruzar la ciudad.</p></div><span class="how-arrow">↗</span></section>
   </main>
-  <footer><span>ahorra<span class="brand-dot">.</span></span><span>Menos vueltas. Más ahorro.</span><span class="creator-credit">App creada por FerKfa</span></footer>
+  <footer><span class="footer-brand">AgentiKfa <b>- Market</b></span><span>Menos vueltas. Más ahorro.</span><span class="creator-credit">App creada por FerKfa</span></footer>
 
   <dialog id="cityDialog"><form method="dialog"><button class="dialog-close" aria-label="Cerrar">×</button><p class="eyebrow muted">ELIGE TU ZONA</p><h2>¿Dónde estás?</h2><p class="section-note">Elige una ciudad para ver sus ofertas.</p><div class="city-options"><button class="city-option" value="Lima"><span>🇵🇪</span><span><strong>Lima</strong><small>Perú</small></span><span>→</span></button><button class="city-option" value="Buenos Aires"><span>🇦🇷</span><span><strong>Buenos Aires</strong><small>Argentina</small></span><span>→</span></button><button class="city-option" value="Santa Fe"><span>🇦🇷</span><span><strong>Santa Fe</strong><small>Argentina</small></span><span>→</span></button><button class="city-option" value="San Luis"><span>🇦🇷</span><span><strong>San Luis</strong><small>Argentina</small></span><span>→</span></button><button class="city-option" value="San Francisco"><span>🇦🇷</span><span><strong>San Francisco</strong><small>Córdoba, Argentina</small></span><span>→</span></button><button class="city-option" value="Barañáin"><span>🇪🇸</span><span><strong>Barañáin</strong><small>Navarra, España · ofertas regionales</small></span><span>→</span></button></div><button class="dialog-gps" id="dialogGps" type="button">⌖ Usar mi ubicación</button></form></dialog>
 </body>
