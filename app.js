@@ -1,10 +1,10 @@
 const currency = { PE: 'PEN', AR: 'ARS', ES: 'EUR' };
 const cityMeta = {
-  Lima: { market: 'PE', label: 'Lima, Perú' },
-  'Buenos Aires': { market: 'AR', label: 'Buenos Aires, Argentina' },
-  'Santa Fe': { market: 'AR', label: 'Santa Fe, Argentina' },
-  'San Luis': { market: 'AR', label: 'San Luis, Argentina' },
-  'San Francisco': { market: 'AR', label: 'San Francisco, Córdoba, Argentina' },
+  Lima: { market: 'PE', label: 'Lima, Perú', coordinates: [-12.0464, -77.0428] },
+  'Buenos Aires': { market: 'AR', label: 'Buenos Aires, Argentina', coordinates: [-34.6037, -58.3816] },
+  'Santa Fe': { market: 'AR', label: 'Santa Fe, Argentina', coordinates: [-31.6333, -60.7000] },
+  'San Luis': { market: 'AR', label: 'San Luis, Argentina', coordinates: [-33.3017, -66.3378] },
+  'San Francisco': { market: 'AR', label: 'San Francisco, Córdoba, Argentina', coordinates: [-31.4270, -62.0827] },
   'Barañáin': { market: 'ES', label: 'Navarra, España' }
 };
 const storeDomains = {
@@ -20,6 +20,9 @@ let currentPosition = null;
 let feed = null;
 let spainFeed = null;
 let spainLoading = false;
+let nearbyStores = [];
+let nearbyStoresLoading = false;
+let nearbyStoresError = false;
 let filtersOpen = false;
 const grid = document.querySelector('#dealGrid');
 const storeFilter = document.querySelector('#storeFilter');
@@ -51,8 +54,9 @@ function timeLabel(value) {
 }
 function cityOffers() {
   const market = cityMeta[city].market;
-  if (market === 'ES') return spainFeed?.offers || [];
-  return (feed?.offers || []).filter(offer => offer.market === market);
+  if (market === 'ES') return (spainFeed?.offers || []).filter(offer => offer.storeAddress);
+  const nearbyNames = new Set(nearbyStores.map(store => store.chain));
+  return (feed?.offers || []).filter(offer => offer.market === market && nearbyNames.has(offer.store));
 }
 function renderSourceStatus() {
   const market = cityMeta[city].market;
@@ -70,7 +74,11 @@ function renderSourceStatus() {
   const missing = unavailable.length
     ? `<br><strong>Sin datos conectados:</strong> ${unavailable.map(source => esc(source.name)).join(', ')}.`
     : '';
-  const locality = market === 'AR' ? ' La cobertura es del catálogo online argentino; aún no está verificada por sucursal de la ciudad seleccionada.' : '';
+  const locality = nearbyStoresLoading
+    ? ' Buscando sucursales cercanas y direcciones…'
+    : nearbyStoresError
+      ? ' No se pudieron verificar sucursales cercanas; no mostramos precios nacionales como si fueran ofertas locales.'
+      : ` Catálogos online filtrados a cadenas con sucursales cercanas. Direcciones: OpenStreetMap. El precio/stock de la sucursal debe confirmarse en tienda.`;
   document.querySelector('#feedNotice').innerHTML = feed
     ? `Fuentes consultadas: ${names}.${locality}${missing}`
     : 'No se pudo cargar la captura de precios. Vuelve a intentarlo más tarde.';
@@ -82,8 +90,8 @@ function render() {
   grid.hidden = false;
   document.querySelector('#emptyState').hidden = false;
   document.querySelector('#demoDisclaimer').textContent = isSpain
-    ? 'Precios indicativos transcritos de folletos oficiales y reunidos desde varios municipios navarros. La cobertura incluye las zonas con folletos detectados; una oferta puede tener condiciones, existencias o disponibilidad distintas según tienda. Compruébala en la fuente.'
-    : 'Los precios provienen de los catálogos online y reflejan la hora de captura. Pueden variar por domicilio, stock, medio de pago y tienda física. La app aún no calcula sucursales cercanas.';
+    ? 'Precios indicativos de folletos vigentes. Cada tarjeta muestra la dirección de la sucursal más cercana que informa la fuente; la oferta puede variar por tienda y condiciones. Compruébala en el folleto.'
+    : 'Precios de catálogo online capturados en la fecha indicada. Se muestran solo cadenas con sucursales cercanas identificadas en OpenStreetMap; el precio y stock no están confirmados para esa dirección. Verifica la oferta en la tienda.';
   const offers = cityOffers();
   const selectedStore = storeFilter.value;
   const selectedCategory = categoryFilter.value;
@@ -103,6 +111,10 @@ function render() {
   grid.innerHTML = visible.map(offer => {
     const image = safeImageUrl(offer.image);
     const href = safeProductUrl(offer);
+    const branch = isSpain
+      ? { name: offer.storeLocationName || offer.store, address: offer.storeAddress, distanceKm: offer.distanceKm, mapUrl: offer.mapUrl }
+      : nearbyStores.find(store => store.chain === offer.store);
+    const mapUrl = branch?.mapUrl || '#';
     return `<article class="deal-card">
       <div class="card-top"><span class="store-tag">${esc(offer.store)}</span><span class="discount">-${esc(offer.discount)}%</span></div>
       <a class="product-link" href="${esc(href)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ${esc(offer.name)} en ${esc(offer.store)}">
@@ -110,15 +122,18 @@ function render() {
         <div class="product-name">${esc(offer.name)}</div>
       </a>
       ${isSpain && offer.conditions ? `<div class="offer-conditions">${esc(offer.conditions)}</div>` : ''}
+      <div class="branch-address"><span aria-hidden="true">⌖</span><a href="${esc(mapUrl)}" target="_blank" rel="noopener noreferrer">${esc(branch?.name || offer.store)} · ${esc(branch?.address || 'Dirección no publicada')}</a>${Number.isFinite(Number(branch?.distanceKm)) ? `<small>${Number(branch.distanceKm).toFixed(1)} km</small>` : ''}</div>
       <div class="distance"><span>${isSpain ? `Folleto · ${esc(offer.validUntil ? `hasta ${offer.validUntil}` : 'vigente')}` : `Catálogo online · ${esc(offer.seller || offer.store)}`}</span><b><a href="${esc(href)}" target="_blank" rel="noopener noreferrer">${isSpain ? 'Fuente ↗' : 'Ver oferta ↗'}</a></b></div>
     </article>`;
   }).join('');
 
-  document.querySelector('#dealsTitle').textContent = isSpain ? `${visible.length} ofertas en Navarra` : `${visible.length} ofertas online para ti`;
+  document.querySelector('#dealsTitle').textContent = isSpain ? `${visible.length} ofertas con sucursal en Navarra` : `${visible.length} ofertas en supermercados cercanos`;
   document.querySelector('#emptyState').hidden = visible.length > 0;
   const emptyMessage = isSpain && spainLoading ? 'Cargando ofertas vigentes de varios municipios navarros…'
-    : isSpain ? 'No fue posible cargar ofertas actuales de Navarra.'
-      : feed ? 'No encontramos ofertas verificadas con esos filtros.' : 'No pudimos cargar las ofertas actuales.';
+    : isSpain ? 'No hay ofertas con una dirección de sucursal verificada en la respuesta de la fuente.'
+      : nearbyStoresLoading ? 'Buscando sucursales y ofertas cercanas…'
+        : nearbyStoresError ? 'No se pudo verificar la ubicación de las sucursales. Inténtalo de nuevo.'
+          : feed ? 'No encontramos ofertas para las cadenas con sucursales cercanas.' : 'No pudimos cargar las ofertas actuales.';
   document.querySelector('#emptyState').innerHTML = `${esc(emptyMessage)}<br /><button id="retryFeed" type="button">Volver a cargar</button>`;
   document.querySelector('#resultNote').textContent = isSpain
     ? (spainFeed?.updatedAt ? `Ofertas vigentes · datos de la fuente actualizados ${timeLabel(spainFeed.updatedAt)}` : 'Precios en euros · folletos vigentes de supermercados de Navarra')
@@ -132,6 +147,7 @@ function setCity(next) {
   currentPosition = null;
   render();
   if (cityMeta[city].market === 'ES') loadSpainOffers();
+  else loadNearbyStores();
 }
 function useLocation() {
   if (!navigator.geolocation) {
@@ -153,6 +169,7 @@ function useLocation() {
     currentPosition = pos.coords;
     render();
     if (cityMeta[city].market === 'ES') loadSpainOffers();
+    else loadNearbyStores();
   }, () => alert('No pudimos acceder a tu ubicación. Puedes elegir una ciudad manualmente.'), {
     enableHighAccuracy: true, timeout: 10000, maximumAge: 30000
   });
@@ -171,7 +188,7 @@ categoryFilter.addEventListener('change', render);
 document.querySelector('#emptyState').addEventListener('click', event => {
   if (event.target.id !== 'retryFeed') return;
   if (cityMeta[city].market === 'ES') loadSpainOffers();
-  else loadFeed();
+  else { loadFeed(); loadNearbyStores(true); }
 });
 
 async function loadSpainOffers() {
@@ -197,6 +214,7 @@ async function loadSpainOffers() {
   for (const { center, data } of results) {
     if (!data) continue;
     if (data.updated_at && data.updated_at > newest) newest = data.updated_at;
+    const nearestStores = new Map((data.nearest_stores || []).map(store => [store.store, store]));
     for (const item of data.offers) {
       if (!item.url || !Number(item.price_eur) || !Number(item.discount_percent)) continue;
       if (byUrl.has(item.url)) continue;
@@ -207,7 +225,12 @@ async function loadSpainOffers() {
         currency: 'EUR', category, image: item.image_url || '',
         url: item.url, source: data.source, validUntil: item.valid_until || '',
         conditions: item.conditions || '', nearbyCity: data.city || center,
-        distanceKm: item.distance_km, availability: item.availability
+        distanceKm: item.distance_km, availability: item.availability,
+        storeAddress: nearestStores.get(item.store)?.address || '',
+        storeLocationName: nearestStores.get(item.store)?.name || item.store,
+        mapUrl: nearestStores.get(item.store)?.latitude && nearestStores.get(item.store)?.longitude
+          ? `https://www.openstreetmap.org/?mlat=${nearestStores.get(item.store).latitude}&mlon=${nearestStores.get(item.store).longitude}#map=17/${nearestStores.get(item.store).latitude}/${nearestStores.get(item.store).longitude}`
+          : ''
       });
     }
   }
@@ -215,6 +238,76 @@ async function loadSpainOffers() {
   else if (spainFeed) spainFeed = { ...spainFeed, stale: true };
   else spainFeed = { offers: [], updatedAt: '', failures: results.length, stale: false };
   spainLoading = false;
+  render();
+}
+
+function normalized(value) {
+  return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+}
+function distanceKm(a, b) {
+  const rad = value => value * Math.PI / 180;
+  const dLat = rad(b[0] - a[0]);
+  const dLon = rad(b[1] - a[1]);
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(rad(a[0])) * Math.cos(rad(b[0])) * Math.sin(dLon / 2) ** 2;
+  return 6371 * 2 * Math.atan2(Math.sqrt(h), Math.sqrt(1 - h));
+}
+function chainForStore(tags, market) {
+  const identity = normalized(`${tags.brand || ''} ${tags.name || ''} ${tags.operator || ''}`);
+  const aliases = market === 'PE'
+    ? { 'Plaza Vea': ['plaza vea'], Metro: ['metro'], Wong: ['wong'] }
+    : { Carrefour: ['carrefour'], 'Día': ['dia', 'supermercados dia'], Jumbo: ['jumbo'] };
+  return Object.entries(aliases).find(([, needles]) => needles.some(needle => identity.includes(needle)))?.[0] || '';
+}
+async function loadNearbyStores(force = false) {
+  if (cityMeta[city].market === 'ES' || (nearbyStoresLoading && !force)) return;
+  const requestedCity = city;
+  const center = currentPosition ? [currentPosition.latitude, currentPosition.longitude] : cityMeta[city].coordinates;
+  const requestedCenter = [...center];
+  nearbyStoresLoading = true;
+  nearbyStoresError = false;
+  nearbyStores = [];
+  render();
+  const market = cityMeta[city].market;
+  const query = `[out:json][timeout:20];(node["shop"="supermarket"](around:15000,${center[0]},${center[1]});way["shop"="supermarket"](around:15000,${center[0]},${center[1]});relation["shop"="supermarket"](around:15000,${center[0]},${center[1]}););out center tags;`;
+  try {
+    let data;
+    for (const endpoint of ['https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter']) {
+      try {
+        const response = await fetch(`${endpoint}?data=${encodeURIComponent(query)}`, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        data = await response.json();
+        break;
+      } catch (error) { console.warn('No respondió el directorio OpenStreetMap:', error); }
+    }
+    if (!data || !Array.isArray(data.elements)) throw new Error('directorio no disponible');
+    const best = new Map();
+    for (const element of data.elements) {
+      const tags = element.tags || {};
+      const chain = chainForStore(tags, market);
+      const street = tags['addr:street'] || tags['addr:place'] || '';
+      const number = tags['addr:housenumber'] || '';
+      if (!chain || !street || !number) continue;
+      const lat = element.lat ?? element.center?.lat;
+      const lon = element.lon ?? element.center?.lon;
+      if (!Number.isFinite(lat) || !Number.isFinite(lon)) continue;
+      const distance = distanceKm(center, [lat, lon]);
+      const address = `${street} ${number}${tags['addr:city'] ? `, ${tags['addr:city']}` : ''}${tags['addr:postcode'] ? ` (${tags['addr:postcode']})` : ''}`;
+      const candidate = { chain, name: tags.name || tags.brand || chain, address, distanceKm: distance, lat, lon,
+        mapUrl: `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}#map=17/${lat}/${lon}` };
+      if (!best.has(chain) || distance < best.get(chain).distanceKm) best.set(chain, candidate);
+    }
+    nearbyStores = [...best.values()];
+  } catch (error) {
+    console.error('No se pudieron verificar sucursales cercanas:', error);
+    nearbyStoresError = true;
+  }
+  const activeCenter = currentPosition ? [currentPosition.latitude, currentPosition.longitude] : cityMeta[city].coordinates;
+  if (city !== requestedCity || activeCenter.some((value, index) => Math.abs(value - requestedCenter[index]) > 0.00001)) {
+    nearbyStoresLoading = false;
+    if (cityMeta[city].market !== 'ES') loadNearbyStores();
+    return;
+  }
+  nearbyStoresLoading = false;
   render();
 }
 
@@ -233,3 +326,4 @@ async function loadFeed() {
 }
 render();
 loadFeed();
+loadNearbyStores();

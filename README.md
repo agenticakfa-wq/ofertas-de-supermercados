@@ -8,17 +8,17 @@ Web app responsive para el piloto de Lima, Buenos Aires, Santa Fe, San Luis, San
 
 Tottus devuelve HTTP 503 a las consultas automatizadas desde este entorno. El sitemap público de Coto tiene fecha de modificación de 2025 y no se usa como oferta vigente. No se sortean bloqueos ni se accede a cuentas, carrito o checkout.
 
-La selección de ciudad limita el país del catálogo; **todavía no regionaliza los precios ni calcula sucursales cercanas por GPS**. En Argentina, el catálogo nacional no verifica la cobertura o el precio de ninguna sucursal local.
+La selección de ciudad limita el país y las cadenas del catálogo a las que tienen una sucursal cercana identificable. En Perú y Argentina, las direcciones y distancias de sucursales se consultan en OpenStreetMap dentro de 15 km del centro de la ciudad o de la ubicación compartida por GPS. Si no se logra verificar una sucursal, la app no presenta sus precios como locales. El catálogo, sin embargo, sigue siendo online y no verifica precio ni stock por sucursal.
 
 ### Argentina
 
-Buenos Aires, Santa Fe, San Luis y San Francisco comparten el catálogo online argentino existente. La selección cambia la ciudad indicada y la ubicación GPS puede reconocer las dos nuevas ciudades, pero los precios no están verificados por sucursal o disponibilidad local.
+Buenos Aires, Santa Fe, San Luis y San Francisco comparten el catálogo online argentino existente. Las ofertas se ordenan por descuento y se muestran solo para cadenas que OpenStreetMap identifica cerca; cada tarjeta enlaza la dirección de la sucursal más cercana mapeada. No se afirma que el precio del catálogo online se respete en esa sucursal. La captura se actualiza diariamente; no hay garantía de ofertas de todos los comercios locales.
 
 ### Navarra, España
 
-Al elegir Barañáin, la app consulta la API pública de solo lectura de Qué Comprar, que recoge ofertas de folletos oficiales españoles y ofrece CORS para integraciones web. Se consultan varias zonas navarras (Barañáin, Tudela, Estella-Lizarra, Tafalla, Sangüesa, Altsasu, Viana, Lodosa, Isaba, Ochagavía, Aoiz, Corella y Ribaforada) y se combinan ofertas sin duplicar enlaces. Así la cobertura es regional y no un círculo único alrededor de Barañáin. La lista visible prioriza las mayores rebajas y no implica que se incluyan todos los productos/folletos de cada municipio.
+Al elegir Barañáin, la app consulta la API pública de solo lectura de Qué Comprar, que recoge ofertas de folletos oficiales españoles y devuelve direcciones de la sucursal más cercana por cadena. Se consultan varias zonas navarras (Barañáin, Tudela, Estella-Lizarra, Tafalla, Sangüesa, Altsasu, Viana, Lodosa, Isaba, Ochagavía, Aoiz, Corella y Ribaforada) y se combinan ofertas sin duplicar enlaces. Así la cobertura es regional y no un círculo único alrededor de Barañáin. La lista visible prioriza las mayores rebajas y no implica que se incluyan todos los productos/folletos de cada municipio.
 
-La fuente API se consulta directamente desde el navegador; no se descarga ni republica el conjunto completo. Cada tarjeta enlaza a su oferta y la interfaz acredita a [Qué Comprar](https://quecomprar.org/conector/). Los precios son orientativos, pueden incluir condiciones de fidelidad y deben comprobarse en el folleto/tienda. La fecha de vigencia se muestra cuando la fuente la publica.
+La fuente API se consulta directamente desde el navegador; no se descarga ni republica el conjunto completo. Cada tarjeta enlaza a su oferta, incluye la dirección devuelta por la API y la interfaz acredita a [Qué Comprar](https://quecomprar.org/conector/). Los precios son orientativos, pueden incluir condiciones de fidelidad y deben comprobarse en el folleto/tienda. La fecha de vigencia se muestra cuando la fuente la publica. Las ubicaciones de Perú/Argentina se atribuyen a OpenStreetMap en la interfaz y enlazan al mapa.
 
 ## Actualización
 
