@@ -56,7 +56,11 @@ function cityOffers() {
   const market = cityMeta[city].market;
   if (market === 'ES') return (spainFeed?.offers || []).filter(offer => offer.storeAddress);
   const nearbyNames = new Set(nearbyStores.map(store => store.chain));
-  return (feed?.offers || []).filter(offer => offer.market === market && nearbyNames.has(offer.store));
+  const marketOffers = (feed?.offers || []).filter(offer => offer.market === market);
+  const nearbyOffers = marketOffers.filter(offer => nearbyNames.has(offer.store));
+  // Keep the catalog useful while address lookup is slow or has incomplete map coverage.
+  // Cards label these fallback prices as online-only and do not imply a local branch match.
+  return nearbyOffers.length ? nearbyOffers : marketOffers;
 }
 function renderSourceStatus() {
   const market = cityMeta[city].market;
@@ -74,11 +78,12 @@ function renderSourceStatus() {
   const missing = unavailable.length
     ? `<br><strong>Sin datos conectados:</strong> ${unavailable.map(source => esc(source.name)).join(', ')}.`
     : '';
+  const hasLocalMatches = nearbyStores.some(store => active.some(source => source.name === store.chain && source.count > 0));
   const locality = nearbyStoresLoading
-    ? ' Buscando sucursales cercanas y direcciones…'
-    : nearbyStoresError
-      ? ' No se pudieron verificar sucursales cercanas; no mostramos precios nacionales como si fueran ofertas locales.'
-      : ` Catálogos online filtrados a cadenas con sucursales cercanas. Direcciones: OpenStreetMap. El precio/stock de la sucursal debe confirmarse en tienda.`;
+    ? ' Mostrando el catálogo online mientras se verifican sucursales cercanas…'
+    : nearbyStoresError || !hasLocalMatches
+      ? ' No se pudo confirmar una sucursal de estas cadenas; los resultados son del catálogo online y no implican disponibilidad local.'
+      : ` Ofertas filtradas a cadenas con sucursales cercanas. Direcciones: OpenStreetMap. El precio/stock de la sucursal debe confirmarse en tienda.`;
   document.querySelector('#feedNotice').innerHTML = feed
     ? `Fuentes consultadas: ${names}.${locality}${missing}`
     : 'No se pudo cargar la captura de precios. Vuelve a intentarlo más tarde.';
@@ -91,7 +96,7 @@ function render() {
   document.querySelector('#emptyState').hidden = false;
   document.querySelector('#demoDisclaimer').textContent = isSpain
     ? 'Precios indicativos de folletos vigentes. Cada tarjeta muestra la dirección de la sucursal más cercana que informa la fuente; la oferta puede variar por tienda y condiciones. Compruébala en el folleto.'
-    : 'Precios de catálogo online capturados en la fecha indicada. Se muestran solo cadenas con sucursales cercanas identificadas en OpenStreetMap; el precio y stock no están confirmados para esa dirección. Verifica la oferta en la tienda.';
+    : 'Precios de catálogo online capturados en la fecha indicada. Intentamos identificar sucursales cercanas con OpenStreetMap; si la búsqueda falla o no coincide una cadena, mostramos los precios online como referencia, no como precio local. Verifica precio y stock en la tienda.';
   const offers = cityOffers();
   const selectedStore = storeFilter.value;
   const selectedCategory = categoryFilter.value;
@@ -113,7 +118,11 @@ function render() {
     const href = safeProductUrl(offer);
     const branch = isSpain
       ? { name: offer.storeLocationName || offer.store, address: offer.storeAddress, distanceKm: offer.distanceKm, mapUrl: offer.mapUrl }
-      : nearbyStores.find(store => store.chain === offer.store);
+      : nearbyStores.find(store => store.chain === offer.store) || {
+        name: offer.store,
+        address: `Sucursal cercana no verificada · ${cityMeta[city].label}`,
+        mapUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${offer.store} supermercado ${cityMeta[city].label}`)}`
+      };
     const mapUrl = branch?.mapUrl || '#';
     return `<article class="deal-card">
       <div class="card-top"><span class="store-tag">${esc(offer.store)}</span><span class="discount">-${esc(offer.discount)}%</span></div>
@@ -127,12 +136,15 @@ function render() {
     </article>`;
   }).join('');
 
-  document.querySelector('#dealsTitle').textContent = isSpain ? `${visible.length} ofertas con sucursal en Navarra` : `${visible.length} ofertas en supermercados cercanos`;
+  const localMatches = isSpain || nearbyStores.some(store => offers.some(offer => offer.store === store.chain));
+  document.querySelector('#dealsTitle').textContent = isSpain
+    ? `${visible.length} ofertas con sucursal en Navarra`
+    : `${visible.length} ofertas ${localMatches ? 'en supermercados cercanos' : 'online para ' + cityMeta[city].label}`;
   document.querySelector('#emptyState').hidden = visible.length > 0;
   const emptyMessage = isSpain && spainLoading ? 'Cargando ofertas vigentes de varios municipios navarros…'
     : isSpain ? 'No hay ofertas con una dirección de sucursal verificada en la respuesta de la fuente.'
-      : nearbyStoresLoading ? 'Buscando sucursales y ofertas cercanas…'
-        : nearbyStoresError ? 'No se pudo verificar la ubicación de las sucursales. Inténtalo de nuevo.'
+    : nearbyStoresLoading ? 'Mostrando ofertas online mientras buscamos direcciones…'
+        : nearbyStoresError ? 'Mostrando el catálogo online; no se pudo verificar una sucursal cercana.'
           : feed ? 'No encontramos ofertas para las cadenas con sucursales cercanas.' : 'No pudimos cargar las ofertas actuales.';
   document.querySelector('#emptyState').innerHTML = `${esc(emptyMessage)}<br /><button id="retryFeed" type="button">Volver a cargar</button>`;
   document.querySelector('#resultNote').textContent = isSpain
@@ -268,16 +280,22 @@ async function loadNearbyStores(force = false) {
   nearbyStores = [];
   render();
   const market = cityMeta[city].market;
-  const query = `[out:json][timeout:20];(node["shop"="supermarket"](around:15000,${center[0]},${center[1]});way["shop"="supermarket"](around:15000,${center[0]},${center[1]});relation["shop"="supermarket"](around:15000,${center[0]},${center[1]}););out center tags;`;
+  const query = `[out:json][timeout:8];(node["shop"="supermarket"](around:15000,${center[0]},${center[1]});way["shop"="supermarket"](around:15000,${center[0]},${center[1]});relation["shop"="supermarket"](around:15000,${center[0]},${center[1]}););out center tags;`;
   try {
     let data;
+    const lookupDeadline = Date.now() + 9000;
     for (const endpoint of ['https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter']) {
+      const remaining = lookupDeadline - Date.now();
+      if (remaining <= 0) break;
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), Math.min(4500, remaining));
       try {
-        const response = await fetch(`${endpoint}?data=${encodeURIComponent(query)}`, { cache: 'no-store' });
+        const response = await fetch(`${endpoint}?data=${encodeURIComponent(query)}`, { cache: 'no-store', signal: controller.signal });
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         data = await response.json();
         break;
       } catch (error) { console.warn('No respondió el directorio OpenStreetMap:', error); }
+      finally { clearTimeout(timeout); }
     }
     if (!data || !Array.isArray(data.elements)) throw new Error('directorio no disponible');
     const best = new Map();

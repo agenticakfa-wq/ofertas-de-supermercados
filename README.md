@@ -12,7 +12,7 @@ La selección de ciudad limita el país y las cadenas del catálogo a las que ti
 
 ### Argentina
 
-Buenos Aires, Santa Fe, San Luis y San Francisco comparten el catálogo online argentino existente. Las ofertas se ordenan por descuento y se muestran solo para cadenas que OpenStreetMap identifica cerca; cada tarjeta enlaza la dirección de la sucursal más cercana mapeada. No se afirma que el precio del catálogo online se respete en esa sucursal. La captura se actualiza diariamente; no hay garantía de ofertas de todos los comercios locales.
+Buenos Aires, Santa Fe, San Luis y San Francisco comparten el catálogo online argentino existente. Las ofertas se ordenan por descuento y, cuando OpenStreetMap identifica una sucursal cercana de una cadena, se filtran a esa cadena y enlazan la dirección mapeada. Si la consulta de direcciones no responde en 9 segundos o no hay coincidencias, la app igualmente muestra el catálogo online, claramente marcado como no verificado por sucursal y con un enlace para buscar la tienda en el mapa. No se afirma que el precio online se respete en esa sucursal. La captura se actualiza diariamente; no hay garantía de ofertas de todos los comercios locales.
 
 ### Navarra, España
 
