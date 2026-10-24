@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f6f7f2" />
   <title>Ofertas cerca de ti</title>
-  <meta name="description" content="Prototipo de Ofertas de Supermercados para Lima, Buenos Aires y Santa Fe." />
+  <meta name="description" content="Ofertas de supermercados en Lima, Buenos Aires, Santa Fe y Barañáin." />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="icon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css?v=b5d44a9" />
-  <script src="app.js?v=b5d44a9" defer></script>
+  <link rel="stylesheet" href="styles.css?v=baranain-20261023" />
+  <script src="app.js?v=baranain-20261023" defer></script>
 </head>
 <body>
   <header class="topbar">
@@ -28,6 +28,11 @@
     <section class="deal-section" aria-labelledby="dealsTitle">
       <div class="section-heading"><div><p class="eyebrow muted">PRECIOS PUBLICADOS</p><h2 id="dealsTitle">Cargando ofertas…</h2><p class="section-note" id="resultNote">Consultando catálogos</p></div><button class="filter-button" id="filtersToggle" type="button"><span>☷</span> Filtrar</button></div>
       <p class="feed-notice" id="feedNotice" aria-live="polite">Consultando fuentes…</p>
+      <div class="local-catalogs" id="localCatalogs" hidden aria-label="Catálogos de supermercados cercanos">
+        <article class="catalog-card"><span class="catalog-store">DIA · Barañáin</span><h3>Ofertas de tus tiendas del barrio</h3><p>Consulta el folleto vigente de cada sucursal en Plaza Castaños y Plaza Tilos.</p><div class="catalog-links"><a href="https://www.dia.es/tiendas/buscador-folletos/navarra/baranain/31010/41038" target="_blank" rel="noopener noreferrer">Plaza Castaños ↗</a><a href="https://www.dia.es/tiendas/buscador-folletos/navarra/baranain/31010/41010" target="_blank" rel="noopener noreferrer">Plaza Tilos ↗</a></div></article>
+        <article class="catalog-card"><span class="catalog-store">EROSKI · Navarra</span><h3>Folletos de Pamplona y alrededores</h3><p>Catálogos regionales y de tiendas cercanas; revisa la vigencia y las condiciones en origen.</p><div class="catalog-links"><a href="https://www.eroski.es/ofertas/catalogos-y-folletos/navarra/pamplona-iruna/" target="_blank" rel="noopener noreferrer">Ver folletos Eroski ↗</a></div></article>
+        <article class="catalog-card"><span class="catalog-store">Lidl · Pamplona</span><h3>Folleto de la tienda cercana</h3><p>Consulta las ofertas publicadas para la tienda de Calle de la A 41.</p><div class="catalog-links"><a href="https://www.lidl.es/s/es-ES/tiendas/pamplona/calle-de-la-a-41/" target="_blank" rel="noopener noreferrer">Ver tienda y ofertas ↗</a></div></article>
+      </div>
       <div class="filters" id="filters" hidden>
         <label>Supermercado <select id="storeFilter"><option value="Todos">Todos</option></select></label>
         <label>Categoría <select id="categoryFilter"><option value="Todas">Todas</option><option>Frutas y verduras</option><option>Lácteos</option><option>Despensa</option><option>Bebidas</option><option>Limpieza</option><option>Cuidado personal</option></select></label>
@@ -40,6 +45,6 @@
   </main>
   <footer><span>ahorra<span class="brand-dot">.</span></span><span>Menos vueltas. Más ahorro.</span><span class="creator-credit">App creada por FerKfa</span></footer>
 
-  <dialog id="cityDialog"><form method="dialog"><button class="dialog-close" aria-label="Cerrar">×</button><p class="eyebrow muted">ELIGE TU ZONA</p><h2>¿Dónde estás?</h2><p class="section-note">Por ahora estamos preparando el piloto en estas ciudades.</p><div class="city-options"><button class="city-option" value="Lima"><span>🇵🇪</span><span><strong>Lima</strong><small>Perú</small></span><span>→</span></button><button class="city-option" value="Buenos Aires"><span>🇦🇷</span><span><strong>Buenos Aires</strong><small>Argentina</small></span><span>→</span></button><button class="city-option" value="Santa Fe"><span>🇦🇷</span><span><strong>Santa Fe</strong><small>Argentina</small></span><span>→</span></button></div><button class="dialog-gps" id="dialogGps" type="button">⌖ Usar mi ubicación</button></form></dialog>
+  <dialog id="cityDialog"><form method="dialog"><button class="dialog-close" aria-label="Cerrar">×</button><p class="eyebrow muted">ELIGE TU ZONA</p><h2>¿Dónde estás?</h2><p class="section-note">Elige una ciudad para ver sus ofertas.</p><div class="city-options"><button class="city-option" value="Lima"><span>🇵🇪</span><span><strong>Lima</strong><small>Perú</small></span><span>→</span></button><button class="city-option" value="Buenos Aires"><span>🇦🇷</span><span><strong>Buenos Aires</strong><small>Argentina</small></span><span>→</span></button><button class="city-option" value="Santa Fe"><span>🇦🇷</span><span><strong>Santa Fe</strong><small>Argentina</small></span><span>→</span></button><button class="city-option" value="Barañáin"><span>🇪🇸</span><span><strong>Barañáin</strong><small>Navarra, España · radio de 50 km</small></span><span>→</span></button></div><button class="dialog-gps" id="dialogGps" type="button">⌖ Usar mi ubicación</button></form></dialog>
 </body>
 </html>

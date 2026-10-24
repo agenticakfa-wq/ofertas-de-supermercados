@@ -1,8 +1,9 @@
-const currency = { PE: 'PEN', AR: 'ARS' };
+const currency = { PE: 'PEN', AR: 'ARS', ES: 'EUR' };
 const cityMeta = {
   Lima: { market: 'PE', label: 'Lima, Perú' },
   'Buenos Aires': { market: 'AR', label: 'Buenos Aires, Argentina' },
-  'Santa Fe': { market: 'AR', label: 'Santa Fe, Argentina' }
+  'Santa Fe': { market: 'AR', label: 'Santa Fe, Argentina' },
+  'Barañáin': { market: 'ES', label: 'Barañáin, Navarra · 50 km' }
 };
 const storeDomains = {
   'Plaza Vea': 'www.plazavea.com.pe', Metro: 'www.metro.pe', Wong: 'www.wong.pe',
@@ -45,6 +46,10 @@ function cityOffers() {
 }
 function renderSourceStatus() {
   const market = cityMeta[city].market;
+  if (market === 'ES') {
+    document.querySelector('#feedNotice').innerHTML = 'Ofertas publicadas en catálogos oficiales de supermercados de Barañáin y Pamplona, todos dentro del radio de 50 km. Los catálogos abren en la web de cada tienda; consulta allí precios, vigencia y condiciones.';
+    return;
+  }
   const sources = (feed?.sources || []).filter(source => source.market === market);
   const unavailable = sources.filter(source => source.status !== 'ok');
   const active = sources.filter(source => source.status === 'ok');
@@ -58,6 +63,22 @@ function renderSourceStatus() {
     : 'No se pudo cargar la captura de precios. Vuelve a intentarlo más tarde.';
 }
 function render() {
+  const isSpain = cityMeta[city].market === 'ES';
+  const localCatalogs = document.querySelector('#localCatalogs');
+  localCatalogs.hidden = !isSpain;
+  document.querySelector('#filters').hidden = isSpain || document.querySelector('#filters').hidden;
+  document.querySelector('#filtersToggle').hidden = isSpain;
+  grid.hidden = isSpain;
+  document.querySelector('#emptyState').hidden = isSpain;
+  document.querySelector('#demoDisclaimer').textContent = isSpain
+    ? 'El radio es geográfico alrededor de Barañáin. Los enlaces llevan a folletos oficiales de DIA en Barañáin y de Eroski/Lidl en Pamplona; las ofertas pueden variar por tienda, stock y condiciones. La app no replica precios del folleto ni confirma disponibilidad.'
+    : 'Los precios provienen de los catálogos online y reflejan la hora de captura. Pueden variar por domicilio, stock, medio de pago y tienda física. La app aún no calcula sucursales cercanas.';
+  if (isSpain) {
+    document.querySelector('#dealsTitle').textContent = 'Ofertas de supermercados a menos de 50 km';
+    document.querySelector('#resultNote').textContent = 'Folletos oficiales de Barañáin y Pamplona · abre cada tienda para ver precios y vigencia';
+    renderSourceStatus();
+    return;
+  }
   const offers = cityOffers();
   const selectedStore = storeFilter.value;
   const selectedCategory = categoryFilter.value;
@@ -114,8 +135,9 @@ function useLocation() {
     if (latitude > -13 && latitude < -11.5 && longitude > -77.5 && longitude < -76.5) city = 'Lima';
     else if (latitude > -32.2 && latitude < -31.3 && longitude > -61 && longitude < -60.3) city = 'Santa Fe';
     else if (latitude > -35.2 && latitude < -34 && longitude > -59.5 && longitude < -57.5) city = 'Buenos Aires';
+    else if (latitude > 42.65 && latitude < 42.95 && longitude > -1.9 && longitude < -1.4) city = 'Barañáin';
     else {
-      alert('Por ahora el piloto está disponible en Lima, Buenos Aires y Santa Fe. Puedes elegir una ciudad manualmente.');
+      alert('Por ahora el piloto está disponible en Lima, Buenos Aires, Santa Fe y Barañáin. Puedes elegir una ciudad manualmente.');
       return;
     }
     currentPosition = pos.coords;
