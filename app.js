@@ -3,6 +3,8 @@ const cityMeta = {
   Lima: { market: 'PE', label: 'Lima, Perú' },
   'Buenos Aires': { market: 'AR', label: 'Buenos Aires, Argentina' },
   'Santa Fe': { market: 'AR', label: 'Santa Fe, Argentina' },
+  'San Luis': { market: 'AR', label: 'San Luis, Argentina' },
+  'San Francisco': { market: 'AR', label: 'San Francisco, Córdoba, Argentina' },
   'Barañáin': { market: 'ES', label: 'Navarra, España' }
 };
 const storeDomains = {
@@ -68,7 +70,7 @@ function renderSourceStatus() {
   const missing = unavailable.length
     ? `<br><strong>Sin datos conectados:</strong> ${unavailable.map(source => esc(source.name)).join(', ')}.`
     : '';
-  const locality = market === 'AR' ? ' La cobertura es del catálogo online; aún no está verificada por sucursal de Buenos Aires o Santa Fe.' : '';
+  const locality = market === 'AR' ? ' La cobertura es del catálogo online argentino; aún no está verificada por sucursal de la ciudad seleccionada.' : '';
   document.querySelector('#feedNotice').innerHTML = feed
     ? `Fuentes consultadas: ${names}.${locality}${missing}`
     : 'No se pudo cargar la captura de precios. Vuelve a intentarlo más tarde.';
@@ -140,10 +142,12 @@ function useLocation() {
     const { latitude, longitude } = pos.coords;
     if (latitude > -13 && latitude < -11.5 && longitude > -77.5 && longitude < -76.5) city = 'Lima';
     else if (latitude > -32.2 && latitude < -31.3 && longitude > -61 && longitude < -60.3) city = 'Santa Fe';
+    else if (latitude > -33.55 && latitude < -33.0 && longitude > -66.65 && longitude < -66.05) city = 'San Luis';
+    else if (latitude > -31.65 && latitude < -31.2 && longitude > -62.35 && longitude < -61.85) city = 'San Francisco';
     else if (latitude > -35.2 && latitude < -34 && longitude > -59.5 && longitude < -57.5) city = 'Buenos Aires';
     else if (latitude > 42.65 && latitude < 42.95 && longitude > -1.9 && longitude < -1.4) city = 'Barañáin';
     else {
-      alert('Por ahora el piloto está disponible en Lima, Buenos Aires, Santa Fe y Navarra. Puedes elegir una ciudad manualmente.');
+      alert('Por ahora el piloto está disponible en Lima, Buenos Aires, Santa Fe, San Luis, San Francisco y Navarra. Puedes elegir una ciudad manualmente.');
       return;
     }
     currentPosition = pos.coords;

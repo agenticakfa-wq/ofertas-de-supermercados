@@ -1,6 +1,6 @@
 # OFERTAS DE SUPERMERCADOS
 
-Web app responsive para el piloto de Lima, Buenos Aires, Santa Fe y Barañáin/Navarra. En Perú y Argentina muestra precios promocionales extraídos de catálogos públicos online. En Navarra muestra ofertas y precios en euros de folletos vigentes, con enlaces a la oferta y sus condiciones.
+Web app responsive para el piloto de Lima, Buenos Aires, Santa Fe, San Luis, San Francisco (Córdoba) y Barañáin/Navarra. En Perú y Argentina muestra precios promocionales extraídos de catálogos públicos online. En Navarra muestra ofertas y precios en euros de folletos vigentes, con enlaces a la oferta y sus condiciones.
 
 ## Datos y cobertura actuales
 
@@ -8,7 +8,11 @@ Web app responsive para el piloto de Lima, Buenos Aires, Santa Fe y Barañáin/N
 
 Tottus devuelve HTTP 503 a las consultas automatizadas desde este entorno. El sitemap público de Coto tiene fecha de modificación de 2025 y no se usa como oferta vigente. No se sortean bloqueos ni se accede a cuentas, carrito o checkout.
 
-La selección de ciudad limita el país del catálogo; **todavía no regionaliza los precios ni calcula sucursales cercanas por GPS**. En Argentina, el catálogo del país no verifica cobertura particular de Buenos Aires o Santa Fe.
+La selección de ciudad limita el país del catálogo; **todavía no regionaliza los precios ni calcula sucursales cercanas por GPS**. En Argentina, el catálogo nacional no verifica la cobertura o el precio de ninguna sucursal local.
+
+### Argentina
+
+Buenos Aires, Santa Fe, San Luis y San Francisco comparten el catálogo online argentino existente. La selección cambia la ciudad indicada y la ubicación GPS puede reconocer las dos nuevas ciudades, pero los precios no están verificados por sucursal o disponibilidad local.
 
 ### Navarra, España
 
